@@ -1,0 +1,9 @@
+INSERT INTO ova (nombre, intensidad, semestre) VALUES ('OVA de Matemáticas', 100, 1);
+INSERT INTO ova (nombre, intensidad, semestre) VALUES ('OVA de Física', 150, 2);
+INSERT INTO ova (nombre, intensidad, semestre) VALUES ('OVA de Química', 120, 3);
+INSERT INTO ova (nombre, intensidad, semestre) VALUES ('OVA de Biología', 130, 4);
+INSERT INTO ova (nombre, intensidad, semestre) VALUES ('OVA de Historia', 90, 1);
+INSERT INTO ova (nombre, intensidad, semestre) VALUES ('OVA de Geografía', 110, 2);
+INSERT INTO ova (nombre, intensidad, semestre) VALUES ('OVA de Inglés', 200, 3);
+INSERT INTO ova (nombre, intensidad, semestre) VALUES ('OVA de Literatura', 140, 4);
+INSERT INTO ova (nombre, intensidad, semestre) VALUES ('OVA de Informática', 160, 1);
