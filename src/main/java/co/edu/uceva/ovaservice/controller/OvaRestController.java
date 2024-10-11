@@ -3,6 +3,8 @@ package co.edu.uceva.ovaservice.controller;
 import co.edu.uceva.ovaservice.model.entities.Ova;
 import co.edu.uceva.ovaservice.model.service.OvaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -53,9 +55,15 @@ public class OvaRestController {
      * @param ova es el objeto de tipo Ova a actualizar (con el id)
      * @return retorna el objeto de tipo Ova actualizado
      */
+
     @PutMapping("/ova")
-    public Ova actualizarOva(@RequestBody Ova ova) {
-        return this.ovaService.save(ova);
+    public ResponseEntity<?> actualizarOva(@RequestBody Ova ova) {
+        try {
+            Ova ovaActualizado = this.ovaService.save(ova);
+            return new ResponseEntity<>(ovaActualizado, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error al actualizar el OVA: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     /**

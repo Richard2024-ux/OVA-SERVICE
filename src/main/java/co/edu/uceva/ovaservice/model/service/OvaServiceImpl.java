@@ -37,7 +37,7 @@ public class OvaServiceImpl implements IOvaService {
     }
 
     @Override
-    public Ova update(Ova ova) {
+    public Ova Update(Ova ova) {
         return ovaDao.save(ova);
     }
 }
