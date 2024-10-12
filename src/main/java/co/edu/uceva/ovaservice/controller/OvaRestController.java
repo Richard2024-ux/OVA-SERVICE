@@ -27,9 +27,16 @@ public class OvaRestController {
      * @return retorna una lista de todos los OVAs
      */
     @GetMapping("/ovas")
-    public List<Ova> listar() {
-        return this.ovaService.listar();
+    public ResponseEntity<List<Ova>> listar() {
+        try {
+            List<Ova> ovas = this.ovaService.listar();
+            return new ResponseEntity<>(ovas, HttpStatus.OK);
+        } catch (Exception e) {
+            // Manejo de la excepción
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
+
 
     /**
      * Este metodo se encarga de retornar un OVA por su id y se mapea con la url /api/ova-service/ovas/{id}
