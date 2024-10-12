@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * Esta clase es el controlador de la entidad Ova y se mapea con la url /api/v1/ova-service
@@ -71,9 +72,23 @@ public class OvaRestController {
      * @param id es el id del OVA a eliminar
      */
     @DeleteMapping("/ovas/{id}")
-    public void eliminarOva(@PathVariable Long id) {
-        Ova ova = this.ovaService.findById(id); // Encuentro un OVA por su id
-        this.ovaService.delete(ova);
+    public ResponseEntity<String> eliminarOva(@PathVariable Long id) {
+        try {
+            // Encuentro un OVA por su id
+            Ova ova = this.ovaService.findById(id);
+
+            // Si el OVA existe, lo elimino
+            this.ovaService.delete(ova);
+
+            // Retorno un código 200 OK con un mensaje de éxito
+            return ResponseEntity.ok("OVA eliminado con éxito.");
+        } catch (NoSuchElementException e) {
+            // Si no se encuentra el OVA, retorno un código 404 Not Found
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("OVA no encontrado con el ID: " + id);
+        } catch (Exception e) {
+            // Manejo de cualquier otra excepción
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al eliminar el OVA: " + e.getMessage());
+        }
     }
 
 }
