@@ -17,6 +17,7 @@ import java.util.NoSuchElementException;
  */
 @RestController
 @RequestMapping("/api/v1/ova-service")
+@CrossOrigin(origins =  "http://localhost:4200")
 public class OvaRestController {
 
     @Autowired
