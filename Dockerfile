@@ -9,3 +9,4 @@ COPY target/ova-service-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
 # Comando para ejecutar la aplicación Spring Boot
 ENTRYPOINT ["java", "-jar", "app.jar"]
+

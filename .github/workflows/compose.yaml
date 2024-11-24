@@ -2,9 +2,9 @@ name: Prueba
 
 on:
   push:
-    branches: [ develops ]
+    branches: [ dev ]
   pull_request:
-    branches: [ develops ]
+    branches: [ dev ]
 
 jobs:
   unit-test:
