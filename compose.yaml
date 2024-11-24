@@ -10,7 +10,7 @@ services:
     networks:
       - red-backend-app
 
-  facultad-service:
+  ova-service:
     image: 'richard0203/ova-service:latest'
     ports:
       - '8080:8080'
